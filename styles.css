@@ -1,0 +1,480 @@
+:root {
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-background: #f8fafc;
+  --color-card: #ffffff;
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+  --color-input-bg: #f8fafc;
+  --color-input-border: #cbd5e1;
+  --color-happy: #22c55e;
+  --color-neutral: #f59e0b;
+  --color-sad: #ef4444;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --radius: 0.5rem;
+  --transition: 0.2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0f172a;
+    --color-card: #1e293b;
+    --color-text: #f1f5f9;
+    --color-text-secondary: #94a3b8;
+    --color-border: #334155;
+    --color-input-bg: #1e293b;
+    --color-input-border: #475569;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--color-text-secondary);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.card-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.card-header p {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+form {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius);
+  background: var(--color-input-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.mood-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mood-option {
+  flex: 1;
+  text-align: center;
+}
+
+.mood-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background-color var(--transition);
+}
+
+.mood-label:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .mood-label:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+input[type="radio"]:checked + .mood-label {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type="radio"]:checked + .mood-label {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.mood-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+input[type="radio"]#happy:checked + .mood-label .mood-icon {
+  color: var(--color-happy);
+}
+
+input[type="radio"]#neutral:checked + .mood-label .mood-icon {
+  color: var(--color-neutral);
+}
+
+input[type="radio"]#sad:checked + .mood-label .mood-icon {
+  color: var(--color-sad);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-icon {
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.btn-icon:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-icon:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.btn-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.btn-icon.loading .refresh-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.entries-container {
+  padding: 1.5rem;
+}
+
+.entries-list {
+  position: relative; /* Required for correct positioning of the context menu */
+  max-height: 300px;
+  overflow-y: auto; /* Allows scrolling if there are many entries */
+}
+
+.entry-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.entry-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.entry-mood {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .entry-mood {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.entry-mood svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.entry-mood.happy svg {
+  color: var(--color-happy);
+}
+
+.entry-mood.neutral svg {
+  color: var(--color-neutral);
+}
+
+.entry-mood.sad svg {
+  color: var(--color-sad);
+}
+
+.entry-content {
+  flex: 1;
+}
+
+.entry-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.entry-date svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.entry-habit {
+  font-weight: 500;
+}
+
+.no-entries {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: 2rem 0;
+}
+
+.insights-card {
+  height: 100%;
+}
+
+.insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+}
+
+.insight-content {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.insight-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.insight-icon {
+  color: var(--color-neutral);
+  flex-shrink: 0;
+}
+
+.insight-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.loading-line {
+  height: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .loading-line {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.loading-line:nth-child(1) {
+  width: 75%;
+}
+
+.loading-line:nth-child(2) {
+  width: 100%;
+}
+
+.loading-line:nth-child(3) {
+  width: 60%;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  transform: translateY(150%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  max-width: 24rem;
+}
+
+.toast.show {
+  transform: translateY(0);
+}
+
+.toast-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.toast-message {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.context-menu {
+  position: absolute;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.context-menu-item {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.context-menu-item:hover {
+  background: var(--color-primary-hover);
+  color: white;
+}

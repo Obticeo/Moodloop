@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodLoop - Daily Mood & Habit Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>MoodLoop</h1>
+      <p>Track your mood, build habits, gain insights</p>
+    </header>
+
+    <div class="content">
+      <div class="column">
+        <!-- Mood Tracker Form -->
+        <div class="card">
+          <div class="card-header">
+            <h2>How are you feeling today?</h2>
+            <p>Log your mood and one habit you completed</p>
+          </div>
+          <form id="mood-form">
+            <div class="form-group">
+              <label>Your mood</label>
+              <div class="mood-options">
+                <div class="mood-option">
+                  <input type="radio" name="mood" id="happy" value="happy" class="sr-only">
+                  <label for="happy" class="mood-label">
+                    <svg class="mood-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 9H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Happy</span>
+                  </label>
+                </div>
+                <div class="mood-option">
+                  <input type="radio" name="mood" id="neutral" value="neutral" class="sr-only">
+                  <label for="neutral" class="mood-label">
+                    <svg class="mood-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 15H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 9H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Neutral</span>
+                  </label>
+                </div>
+                <div class="mood-option">
+                  <input type="radio" name="mood" id="sad" value="sad" class="sr-only">
+                  <label for="sad" class="mood-label">
+                    <svg class="mood-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 16C16 16 14.5 14 12 14C9.5 14 8 16 8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 9H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Sad</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="habit">One habit you completed today</label>
+              <input type="text" id="habit" placeholder="e.g., drank water, meditated, exercised...">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Log Entry
+            </button>
+          </form>
+        </div>
+
+        <!-- Recent Entries -->
+        <div class="card">
+          <div class="card-header">
+            <h2>Recent Entries</h2>
+            <p>Your mood and habit history</p>
+          </div>
+          <div class="entries-container">
+            <div id="entries-list" class="entries-list">
+              <div class="entry-item" data-id="${entry.id}">
+              </div>
+              <p id="no-entries" class="no-entries">No entries yet. Start logging your mood and habits!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <!-- AI Insights -->
+        <div class="card insights-card">
+          <div class="card-header insights-header">
+            <div>
+              <h2>AI Insights</h2>
+              <p>Based on your mood patterns</p>
+            </div>
+            <button id="refresh-insight" class="btn btn-icon" aria-label="Refresh insights" style="width: 52px; height: 53px;">
+              <svg class="refresh-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <path d="M23 4V10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 20V14H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.51 9.00001C4.01717 7.56455 4.87913 6.2854 6.01547 5.27543C7.1518 4.26547 8.52547 3.55978 10.0083 3.22427C11.4911 2.88877 13.0348 2.93436 14.4952 3.35679C15.9556 3.77922 17.2853 4.56473 18.36 5.64001L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1113 13.9917 20.7758C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4355 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div id="insight-content" class="insight-content">
+            <div class="insight-loading">
+              <div class="loading-line"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast">
+      <div class="toast-content">
+        <div class="toast-title">Success</div>
+        <div class="toast-message">Your entry has been saved!</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
